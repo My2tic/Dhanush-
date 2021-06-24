@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stlye1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <h1 class="animate__animated animate__pulse">Grade System</h1>
+    <div class="container">
+      <div class="field">
+        <div class="row">
+          <label for="">English</label>
+          <input type="text" id="english">
+        </div>
+        <span id="emessage"></span>
+      </div>
+        <div class="field">
+          <div class="row">
+            <label for="">Math</label>
+            <input type="text" id="math">
+        </div>
+        <span id="message"></span>
+
+        <button onclick="cal()">Calculate</button>
+ <p id="showdata"></p>
+
+    </div>
+      <script>
+        function cal(){
+          let english = Number(document.getElementById('english').value);
+          let math = Number(document.getElementById('math').value);
+          let total;
+
+          // input in right raidus display after click on a button 
+          
+          
+          if(english == " "){
+           document.getElementById('emessage').innerHTML = " * Value cant be empty";
+           return false;
+          }
+
+           if((english < 0) || (english > 100 ) ) {
+               document.getElementById('emessage').innerHTML = " ** please enter correct  details" ;
+               return false
+           }
+           if(math == " "){
+           document.getElementById('message').innerHTML = " * Value cant be empty";
+           return false;
+          }
+
+           if((math < 0) || (math > 100 ) ) {
+               document.getElementById('message').innerHTML = " ** please enter correct  details" ;
+               return false
+           }
+          total = english + math;
+          console.log(total);
+    
+          document.getElementById('showdata').innerHTML = `You scored ${total}`;
+        }
+      </script>
+</body>
+</html>
